@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^3.3.2",
     "@mui/material": "^5.15.1",
     "clsx": "^2.0.0",
+    "date-fns": "^3.0.6",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",

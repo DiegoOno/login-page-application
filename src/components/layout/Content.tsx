@@ -6,7 +6,7 @@ interface ContentProps {
 
 const Content = ({ children }: ContentProps) => {
   return (
-    <div className='flex w-screen h-screen items-center justify-center'>
+    <div className='flex flex-col w-screen h-screen items-center justify-center'>
       {children}
     </div>
   )
