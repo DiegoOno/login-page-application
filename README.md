@@ -2,29 +2,29 @@
 
 ## Execução do projeto
 1) **Clonar o repositório**
-`
+```
   git clone git@github.com:DiegoOno/login-page-application.git
-` 
+```
 
 2) **Navegar até o diretório do projeto**
-`
+```
   cd login-page-application
-`
+```
 
 3) **Instalar as dependências**
-`
+```
   yarn
-`
+```
 
 4) **Iniciar no ambiente local**
-`
+```
   yarn dev
-`
+```
 
 5) **Abir o navegador na url indicada:**
-`
+```
   http://localhost:3000
-` 
+```
 
 ## Principais Tecnologias
 - **Next.js: 14.0.4**
