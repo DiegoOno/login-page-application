@@ -1,5 +1,7 @@
 import { login } from '@/lib/api'
-import React, { createContext, useContext, useState, useReducer } from 'react'
+import { useRouter } from 'next/router'
+import React, { createContext, useContext, useReducer } from 'react'
+import { useMutation, useQueryClient } from 'react-query'
 
 interface LoginState {
   isAuthenticated: boolean
@@ -55,12 +57,27 @@ const loginReducer = (state: LoginState, action: {type: string, payload: any}) =
 
 const LoginContextProider = ({ children }: { children: React.ReactNode }) => {
   const [loginState, dispatch] = useReducer(loginReducer, initialState);
+  const router = useRouter()
+  const queryClient = useQueryClient()
+  const { mutate } = useMutation(
+    ({ email, password }: { email: string; password: string }) =>
+      login(email, password),
+    {
+      onSuccess: ({ loggedUser, expireIn }) => {
+        queryClient.invalidateQueries("login");
+        dispatch({ type: "LOGIN_SUCCESS", payload: { loggedUser, expireIn } });
+        router.push("/dashboard");
+      },
+      onError: (error) => {
+        console.error(error);
+      },
+    }
+  )
+
 
   const authenticate = async ({ email, password }: { email: string, password: string }) => {
     try {
-      const response = await login(email, password)
-      const { loggedUser, expireIn } = response
-      dispatch({ type: 'LOGIN_SUCCESS', payload: { loggedUser, expireIn } })
+      mutate({ email, password })
       return true
     } catch(error) {
       dispatch({ type: 'LOGIN_FAILURE', payload: error })

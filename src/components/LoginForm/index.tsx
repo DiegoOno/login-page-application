@@ -23,10 +23,7 @@ const LoginForm = () => {
     try {
       loginFieldsSchema.parse(data)
       dispatch({ type: 'LOGIN_REQUEST', payload: null })
-      const isLogged = await authenticate(data)
-      if (isLogged) {
-        router.push('/dashboard')
-      }
+      await authenticate(data)
     } catch (error: FieldErrors<IFormInputs> | any) {
       console.error(error)
     }
