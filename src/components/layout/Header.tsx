@@ -5,8 +5,14 @@ interface HeaderProps {
 }
 const Header = ({ logout }: HeaderProps) => {
   return (
-    <header className="flex w-screen justify-end p-4 bg-[#36545e]">
-      <Button variant="contained" className="bg-[#2C5364]" onClick={logout}>
+    <header className='flex w-screen justify-end p-4 bg-[#36545e]'>
+      <Button 
+        variant='contained' 
+        style={{ 
+          backgroundColor: "rgba(44, 83, 100, 1)" 
+        }} 
+        onClick={logout}
+      >
         Logout
       </Button>
     </header>
