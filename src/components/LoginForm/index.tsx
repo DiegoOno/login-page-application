@@ -47,11 +47,10 @@ const LoginForm = () => {
       />
 
       <Button
-        className='w-1/2 self-end items-center cursor-pointer'
+        className='w-1/2 self-end items-center cursor-pointer bg-[#2C5364] hover:bg-[#2C5364]/80 disabled:bg-[#2C5364]/20'
         type='submit'
         variant='contained'
         disabled={loginState.loading}
-        style={{ backgroundColor: loginState.loading ? 'rgba(44, 83, 100, 0.3)' : 'rgba(44, 83, 100, 1)' }}
       >
         {loginState.loading ? <CircularProgress size={18} className='text-white' /> : null}
         <span className='self-center flex-1 text-center text-white font-semibold'>Login</span>

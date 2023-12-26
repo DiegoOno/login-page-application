@@ -5,12 +5,10 @@ interface HeaderProps {
 }
 const Header = ({ logout }: HeaderProps) => {
   return (
-    <header className='flex w-screen justify-end p-4 bg-[#36545e]'>
+    <header className='flex w-screen justify-end p-4'>
       <Button 
         variant='contained' 
-        style={{ 
-          backgroundColor: "rgba(44, 83, 100, 1)" 
-        }} 
+        className='self-end items-center cursor-pointer bg-[#2C5364] hover:bg-[#2C5364]/80'
         onClick={logout}
       >
         Logout
