@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 
-import { TextField, Button, CircularProgress } from '@mui/material'
+import { TextField, CircularProgress } from '@mui/material'
+import { Button, } from '@mui/base'
 
 import { useForm, SubmitHandler, FieldErrors } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -47,9 +48,8 @@ const LoginForm = () => {
       />
 
       <Button
-        className='w-1/2 self-end items-center cursor-pointer bg-[#2C5364] hover:bg-[#2C5364]/80 disabled:bg-[#2C5364]/20'
+        className='flex p-2 w-1/2 h-10 rounded-lg self-end items-center cursor-pointer bg-[#2C5364] hover:bg-[#2C5364]/80 disabled:bg-[#2C5364]/20'
         type='submit'
-        variant='contained'
         disabled={loginState.loading}
       >
         {loginState.loading ? <CircularProgress size={18} className='text-white' /> : null}
